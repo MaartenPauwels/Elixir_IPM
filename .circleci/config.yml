@@ -46,6 +46,7 @@ jobs:  # basic units of work in a run
       - save_cache: # and one more build cache for good measure
           key: v1-build-cache
           paths: "_build"
+      
 
       - run:  # special utility that stalls main process until DB is ready
           name: Wait for DB
@@ -55,4 +56,6 @@ jobs:  # basic units of work in a run
 
       - store_test_results: 
           # Read more: https://circleci.com/docs/2.0/collect-test-data/
+          path: test-reports
+      - store_artifacts:
           path: test-reports
